@@ -6,9 +6,9 @@
  */
 function saveEvent (request, response) {
 	let eventData = {
-		'eventName': request.webtaskContext.body.eventName,
-		'eventCategory': request.webtaskContext.body.eventCategory,
-		'eventValue': request.webtaskContext.body.eventValue,
+		'eventName': request.body.eventName,
+		'eventCategory': request.body.eventCategory,
+		'eventValue': request.body.eventValue,
 		'eventTime': Date.getTime()
 	};
 	MongoClient.connect(DB_URL, function(err, client) {
@@ -17,11 +17,13 @@ function saveEvent (request, response) {
 			client.close();
 		});
 	});
+	response.writeHead(400, { 'Content-Type': 'application/json'});
+	response.end(JSON.stringify({"post": "success"}));
 }
 
 function insertEvents (db, eventData, callback) {
 	let collection = db.collection('events');
-	collection.insert(eventData, (error, results) => {
+	collection.insertOne(eventData, (error, results) => {
 		callback(results);
 	});
 }

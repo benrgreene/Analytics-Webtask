@@ -3,6 +3,10 @@ const MongoClient = require('mongodb').MongoClient;
 
 var app     = new (require('express'))();
 var webtask = require('webtask-tools');
+var bodyParser = require('body-parser');
+
+// Without this, we can't get our POST data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // POST endpoints
 app.post('/AddEvent', saveEvent);	
