@@ -9,7 +9,7 @@ function saveEvent (request, response) {
 		'eventName': request.body.eventName,
 		'eventCategory': request.body.eventCategory,
 		'eventValue': request.body.eventValue,
-		'eventTime': Date.getTime()
+		'eventTime': (new Date()).getTime()
 	};
 	MongoClient.connect(DB_URL, function(err, client) {
 		const db = client.db()
