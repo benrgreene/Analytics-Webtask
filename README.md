@@ -4,7 +4,7 @@ This is a simple analytics solution making use of Webtask and MongoDB. You'll ne
 
 ## Setup
 
-First thing after pulling down the repo is that you'll need to add your DB credentials. Copy the file contents from `./src/_creds-example.js` into a new file: `./src/_crds.js` and enter your own database's credentials.
+First thing after pulling down the repo is that you'll need to add your DB credentials. Copy the file contents from `./src/_creds-example.js` into a new file: `./src/_creds.js` and enter your own database's credentials.
 
 Next, run `npm install` to make sure you've got gulp/npm all setup.
 
