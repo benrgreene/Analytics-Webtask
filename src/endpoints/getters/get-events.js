@@ -4,20 +4,13 @@
 function getEvents (request, response) {
 	MongoClient.connect(DB_URL, function(err, client) {
 		const db      = client.db(DB_NAME);
-		let eventType = 'test';
-		findSpecificEvents(db, eventType, (docs) => {
+		let eventOptions = {
+			'name': request.query.eventName ? request.query.eventName : 'notype'
+		};
+		findEvents(db, (docs) => {
 			client.close();
 			response.writeHead(400, { 'Content-Type': 'application/json'});
 			response.end(JSON.stringify(docs));
-		});
-	});
-}
-
-function findSpecificEvents (db, eventType, callback) {
-	let collection = db.collection('events');
-	collection.find({
-		'name': eventType
-	}).toArray((err, docs) => {
-		callback(docs)
+		}, eventOptions);
 	});
 }

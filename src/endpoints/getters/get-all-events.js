@@ -8,13 +8,13 @@ function getAllEvents (request, response) {
 			client.close();
 			response.writeHead(400, { 'Content-Type': 'application/json'});
 			response.end(JSON.stringify(docs));
-		});
+		}, {});
 	});
 }
 
-function findEvents (db, callback) {
+function findEvents (db, callback, options) {
 	let collection = db.collection('events');
-	collection.find({}).toArray((err, docs) => {
+	collection.find(options).toArray((err, docs) => {
 		callback(docs)
 	});
 }
