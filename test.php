@@ -33,6 +33,24 @@
 			</table>
 			<input type="submit" value="Submit" />
 		</form>
+		<h2>Update Event</h2>
+		<form method="POST" id="js-put-form" action="">
+			<table>
+				<tr>
+					<td>Event Name</td>
+					<td><input type="text" name="eventName" value="asdf" /></td>
+				</tr>
+				<tr>
+					<td>Event Category</td>
+					<td><input name="eventCategory" value="asdf" /></td>
+				</tr>
+				<tr>
+					<td>Event Value</td>
+					<td><input name="eventValue" value="asdf" /></td>
+				</tr>
+			</table>
+			<input type="submit" value="Submit" />
+		</form>
 		<h2>GET Requests</h2>
 		<table>
 			<tr>
@@ -50,6 +68,7 @@
 		<script>
 			const webtaskUrl = document.querySelector('#js-webtask-url');
 			const postForm   = document.querySelector('#js-post-form');
+			const putForm    = document.querySelector('#js-put-form');
 			const eventName  = document.querySelector('#js-get-name');
 			const getAllBtn  = document.querySelector('#js-btn-get-all');
 			const getType    = document.querySelector('#js-btn-get-type');
@@ -57,6 +76,7 @@
 
 			webtaskUrl.addEventListener('change', (event) => {
 				postForm.setAttribute('action', `${webtaskUrl.value}/AddEvent`)
+				putForm.setAttribute('action', `${webtaskUrl.value}/UpdateEvent`)
 			});
 
 			getAllBtn.addEventListener('click', (event) => {

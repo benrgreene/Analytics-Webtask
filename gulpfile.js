@@ -8,6 +8,6 @@ var jsDest  = './';
 
 gulp.task('scripts', function() {
     return gulp.src(jsFiles)
-        .pipe(concat('analytics.js'))
+        .pipe(concat('analytics.build.js'))
         .pipe(gulp.dest(jsDest));
 });
