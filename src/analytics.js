@@ -9,7 +9,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // POST endpoints
-app.post('/AddEvent', saveEvent);	
+app.post('/AddEvent', saveEvent);
+// Update endpoints
+app.post('/UpdateEvent', updateEvent);
 // GET endpoints
 app.get('/Events', getEvents);
 app.get('/AllEvents', getAllEvents);
@@ -20,6 +22,7 @@ app.get('/AllEvents', getAllEvents);
  */
 module.exports = webtask.fromExpress(app).auth0({
 	exclude : [
-		'/AddEvent'
+		'/AddEvent',
+		'/UpdateEvent'
 	]
 });
