@@ -14,9 +14,10 @@ Now, run `gulp scripts` in terminal (in the project directory) to build the proj
 
 There are three endpoints in the webtask:
 
-* POST - AddEvent    - posts a new event which gets saved to the DB
-* POST - UpdateEvent - posts an update to an event in the DB
-* GET  - AllEvents   - gets all events
-* GET  - Events      - gets events of a type specified by the query parameter `eventName`
+* POST - AddEvent       - posts a new event which gets saved to the DB
+* POST - UpdateEvent    - posts an update to an event in the DB
+* POST - IncrementEvent - posts an update to increment the value of a document in the DB
+* GET  - AllEvents      - gets all events
+* GET  - Events         - gets events of a type specified by the query parameter `eventName`
 
 The GET endpoints require the query parameter `access_token`. 
