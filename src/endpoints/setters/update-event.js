@@ -22,6 +22,9 @@ function updateEvent (request, response) {
 		response.writeHead(200, { 'Content-Type': 'application/json'});
 		response.end(JSON.stringify({"post": "success"}));
 	});
+	// Issue with connecting to the DB
+	response.writeHead(500, { 'Content-Type': 'application/json'});
+	response.end(JSON.stringify({"post": "success"}));
 }
 
 function updateEventInDB (db, eventQuery, eventData) {
