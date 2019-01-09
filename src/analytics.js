@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/AddEvent', saveEvent);
 // Update endpoints
 app.post('/UpdateEvent', updateEvent);
+app.post('/IncrementEvent', incrementEvent);
 // GET endpoints
 app.get('/Events', getEvents);
 app.get('/AllEvents', getAllEvents);
@@ -21,8 +22,9 @@ app.get('/AllEvents', getAllEvents);
  * (GET endpoints should be secured so only authenticated users can access the data)
  */
 module.exports = webtask.fromExpress(app).auth0({
-	exclude : [
+	exclude: [
 		'/AddEvent',
-		'/UpdateEvent'
+		'/UpdateEvent',
+		'/IncrementEvent'
 	]
 });
