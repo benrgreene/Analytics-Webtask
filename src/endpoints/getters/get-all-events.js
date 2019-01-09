@@ -6,7 +6,7 @@ function getAllEvents (request, response) {
 		const db = client.db(DB_NAME);
 		findEvents(db, (docs) => {
 			client.close();
-			response.writeHead(400, { 'Content-Type': 'application/json'});
+			response.writeHead(200, { 'Content-Type': 'application/json'});
 			response.end(JSON.stringify(docs));
 		}, {});
 	});
